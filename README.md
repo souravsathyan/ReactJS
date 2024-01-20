@@ -99,6 +99,39 @@ jsx example
         * without jsx  => React.createElement - a JS Obj => then to HTMLElement(render)
     -
 
+
+// const elem = <span>REac span element</span>
+// const HeadingComponent = () => (
+//     <div>
+//         <h1 className='myHeading'>Namaste React</h1>
+//     </div>
+// )
+// const jsxHeading = (
+//     <div>
+//         <h1>Namaste REact using JSX</h1>
+//         <HeadingComponent />
+//         <h1 className='myHeading'>Namaste React</h1>
+//     </div>
+// )
+
+
+// const TitleComponent = () => {
+//     return <h1>Title</h1>
+// }
+
+
+// // root.render(<HeadingComponent />)
+// root.render(jsxHeading)
+
+2 types of Export/Import
+    Default Export
+    -export default Component
+    -import Compnent from 'path'
+
+    Named Export 
+    -export const Component
+    -import {Component} from 'path'
+
 ***PROPS***
     -properties
     -passing a argument in to function/ components
@@ -116,3 +149,5 @@ jsx example
     -website driven by data
     -eg=> based on the location we can present different ui
     -
+**SUPER POWERS OF REACT**
+
