@@ -98,3 +98,21 @@ jsx example
     -It Converts the JSX to React.createElement - a JS Obj => then to HTMLElement(render)
         * without jsx  => React.createElement - a JS Obj => then to HTMLElement(render)
     -
+
+***PROPS***
+    -properties
+    -passing a argument in to function/ components
+    -are normal arguments of function
+    -prop is an object
+    -when we want to add dynamic data. We will use props to pass data to component.
+    -when passing the data using loop we have to pass a unique key
+        -why? for preventing re-renter all the components
+        -by using unique id we can prevent the full re-rendering.
+        -for optimization
+        -**Do not use the index as the keys**
+        -**no keys < index < unique keys**
+
+***CONFLICT_DRIVEN-UI***
+    -website driven by data
+    -eg=> based on the location we can present different ui
+    -
