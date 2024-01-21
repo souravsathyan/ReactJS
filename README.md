@@ -150,4 +150,40 @@ jsx example
     -eg=> based on the location we can present different ui
     -
 **SUPER POWERS OF REACT**
+    -super fast in DOM Manipulation
+    -holds the ui layer and data layer consistently each other
+    -When ever state variable updates, react re-renders the component in a very optimized way
+    -Uses Reconciliation Algorithm (aka React Fiber) (React 16)
+        -new way of finding the Diff and updating / re-render the DOM
+        -
+        -Virtual Dom
+             => is a object representation of actual DOM
+             => normal js Object
+             => 
+        -Diff Algorithm
+            => 
+    #React Hooks
+        -normal js functions
+        -it is a utilites functions in the react
+        -
+        -2 important Hooks
+            -useState()
+                -generate super powerful react variables
+                -to create state variable
+                -keeps track on the variables and when ever there is a changes in the variable react trigger the diff algo and automatically updates the UI
+                -keeps the UI in sync with the data variable
+                -usage
+                    -import from react
+                    -like a named import 
+                    -const [variableName, setVariableName] = useState(defaultData)
+                        -when using useState() it will give us a state variable and we recive it inside an array
+                    -setVariableName used for triggering the diff algorithm for finding the difference and re-rendering/updating
+            -useEffect()
+                -
 
+#workout
+    -usestate
+    -react fiber
+    -virtual dom
+    -diff algorthm
+    -why react fast

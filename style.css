@@ -46,17 +46,26 @@ html,body{
     height: 450px;
     border-radius: 5px;
     word-wrap: break-word;
-    overflow: hidden;
 }
 .res-card:hover{
     border: 1px solid black;
     cursor: pointer;
+}
+.img-container{
+    overflow: hidden;
 }
 
 .rest-food{
     width: 100%;
     border-radius: 5px;
     height: 235px;
+    transition: 1s ease-in;
+    object-fit: cover;
+    
+}
+
+.rest-food:hover{
+    transform: scale(1.2);
 }
 
 .rest-container{
@@ -64,4 +73,9 @@ html,body{
     flex-wrap: wrap;
     gap: 5rem;
     padding: 2rem;
+}
+
+.filter-btn{
+    margin: 16px;
+    cursor: pointer;
 }
