@@ -170,7 +170,7 @@ jsx example
             -useState()
                 -generate super powerful react variables
                 -to create state variable
-                -keeps track on the variables and when ever there is a changes in the variable react trigger the diff algo and automatically updates the UI
+                -keeps track on the variables and when ever there is a changes in the variable, react trigger the diff algo and automatically updates the UI
                 -keeps the UI in sync with the data variable
                 -usage
                     -import from react
