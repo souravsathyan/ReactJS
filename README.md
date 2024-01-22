@@ -162,12 +162,18 @@ jsx example
              => 
         -Diff Algorithm
             => 
+    -react has faster rendering mechanism
+    - Load app => render => API_call => populate
+    -Whenever state variable update react triggers a reconciliation cycle(re-renders the component)
+
     #React Hooks
         -normal js functions
         -it is a utilites functions in the react
         -
         -2 important Hooks
             -useState()
+                -uses when we want to create a dynamic variable
+                -
                 -generate super powerful react variables
                 -to create state variable
                 -keeps track on the variables and when ever there is a changes in the variable, react trigger the diff algo and automatically updates the UI
@@ -178,12 +184,14 @@ jsx example
                     -const [variableName, setVariableName] = useState(defaultData)
                         -when using useState() it will give us a state variable and we recive it inside an array
                     -setVariableName used for triggering the diff algorithm for finding the difference and re-rendering/updating
-            -useEffect()
-                -
 
-#workout
-    -usestate
-    -react fiber
-    -virtual dom
-    -diff algorthm
-    -why react fast
+            -useEffect()
+                -2 parameters
+                    1.Callback function
+                        1.1 called after the component rendered
+                    2.dependency
+
+microservices
+    -seperation of concern
+    -single responsibility principle
+    -ability of usage of diff languages for each services

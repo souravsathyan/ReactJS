@@ -35,4 +35,6 @@ Reconciliation Vs. Renderer
 #React Fiber
     -the purpose of React Fiber. Fiber is reimplementation of the stack, specialized for React components. You can think of a single fiber as a virtual stack frame.
     -we can keep the stack frames in memory and execute whenever we want => crcucial for scheduling
-    -
+
+#why React is Fast 🚀
+    -react is efficient in DOM manipulation it have react fiber a new reconciliation process which uses the diff algorithm. In which it compares the old and new V.DOM and updates only the required part of the Actual DOM ie, why React is Faster 🚀 
