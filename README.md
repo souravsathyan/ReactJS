@@ -169,6 +169,10 @@ jsx example
     #React Hooks
         -normal js functions
         -it is a utilites functions in the react
+        -call it iniside the component
+        -top of the function
+        -does not create state inside the if condition and inside the function and in the loops
+        -
         -
         -2 important Hooks
             -useState()
@@ -187,9 +191,35 @@ jsx example
 
             -useEffect()
                 -2 parameters
-                    1.Callback function
+                    1.Callback function*
                         1.1 called after the component rendered
                     2.dependency
+                -useEffect will be called after every time the component rendered
+                -dependency array changes the behaviour of the render
+                    -if no dependency array useEffect will be called in every render
+                    -if there is an dependency empty array => useEffect will be called on initial render  and once.
+                    -if dependency array is not empty. iT will be called when the dependecy is changed
+
+#Routing
+    -using React Router npm package.
+    -have to create routing configuration in app level
+    -we import the *createBrowserRouter to config our paths
+    -configuration is a list of Objects
+    -*RouterProvider component gives the routing configration to our App
+    -with useRouterError hook by the react-router-dom we can access more details about the error occured
+    -*Outlet component will render the child route according to the path ie, the outlet will be filled with the component A2 path.
+    -*Link for navigating
+    -link is a wrapper around the anchor tag. 
+        -Link will keep a track on the anchor tag and prevents from the page refresh
+        -
+    -*useParam hook used to read the params from the route
+    -2 Types of Routing 
+        -client-side Routing
+            -components are loaded 
+            -not feetching new pages
+            -just a one page. the components are changed.
+        -Server-side Routing
+            -reloads the webpage
 
 microservices
     -seperation of concern
