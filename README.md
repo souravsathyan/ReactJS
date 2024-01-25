@@ -225,3 +225,43 @@ microservices
     -seperation of concern
     -single responsibility principle
     -ability of usage of diff languages for each services
+
+#Class based Components
+    => A classclass extends React.Component and has a render method, which returns a jsx
+    => we pass the props and recieve it in the constructor
+    => we have to give the super(props) in the constructor
+        ->to inherit the properties of the parent
+        ->
+    =>Loading a component == creating a instance of class
+    =>we create state variable in the constructor
+        ->it is an object
+        ->we can create multiple state variables by increasing the properties
+        ->
+    => react gives this.setState => for updating the state variable
+        ->we pass the object containing the to be update data.
+        ->we can batch mltiple state variables
+        ->
+    =>mounting / work flow of class based component
+        -> parent constructor => parent render => child constructor => child render
+    =>componentDidMount(){} => will be called after the component is mounted.
+        =>to make api calls
+        =>similar to useEffect = because we call the api after the component is loaded.
+        =>we dont want component to render till api returns data
+        =>So react quickly render the component and renders the data from the api.
+        =>
+    =>when the parent and child have the componentDidMount() then
+        -> parent constructor() => parent render=> child constructor=> child render => child componentDidMount => parent componentDidMount.
+
+#React life Cycle
+    -React has 2 phases
+        -->Render Phase
+            ->has Constructor and Render
+            ->no sideeffects
+        -->React Updates the DOM
+        -->Commit Phase
+            ->runs api calls ie, componentDidMount is called
+            ->render data
+    => This lide cycle works for every parent and child in react
+    
+
+    

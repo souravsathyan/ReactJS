@@ -68,7 +68,8 @@ const BodyComponent = () => {
                     filteredRestaurant.map((el) => {
                         return <Link 
                         key={el.info.id}
-                        to={'/restaurants/'+el.info.id}>
+                        to={'/restaurants/'+el.info.id}
+                        >
                             <CardsComponent key={el.info.id} resData={el} />
                         </Link>
 
