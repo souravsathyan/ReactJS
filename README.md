@@ -251,17 +251,21 @@ microservices
         =>
     =>when the parent and child have the componentDidMount() then
         -> parent constructor() => parent render=> child constructor=> child render => child componentDidMount => parent componentDidMount.
+    => when there is multiple child then react optimises the rendering and barches the rendering for the child
 
 #React life Cycle
     -React has 2 phases
         -->Render Phase
             ->has Constructor and Render
             ->no sideeffects
-        -->React Updates the DOM
+            ->in case of the multiple childs, react will batches the rendering phase of the child.
+                ->why react is doing like this?
+                    => **because DOM manipulation is very expensive and time consuming so react tries to  batches the dom rendering ie, why react is fast**
         -->Commit Phase
+            -><**React Updates the DOM in a single batch**>
             ->runs api calls ie, componentDidMount is called
             ->render data
     => This lide cycle works for every parent and child in react
-    
 
-    
+
+e08 => 1.32.41
