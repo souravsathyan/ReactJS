@@ -1,5 +1,11 @@
+links{
+    #life cycle => https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+
+}
+
 "We write code first for human then for machines"
-#react
+<h1>React</h1> 
 react
     -core of reacr library
     -for creating react components, handling component lifecycle and state management
@@ -45,7 +51,7 @@ tilde(~) and caret(^) in package.json
 
 npx = used to execute the npm package
 
-#parcel
+<h3>Parcel</h3> 
     -refer this [https://medium.com/@nikhildhariwal2004/parcel-is-a-beast-an-all-in-one-bundle-for-powerful-web-development-e79f8a70cbd6]
     -refer docs => https://parceljs.org/
     - development build
@@ -71,7 +77,7 @@ npx = used to execute the npm package
     -dist folder keeps all the bundeled files
     
 
-#JSX
+<h3>JSX</h3> 
     - developed by facebook devlopers
     -a javascript syntax which is easier to create react 
     -jsx is different than react
@@ -92,7 +98,7 @@ jsx example
     const jsxHeading = <h1>Namaste REact using JSX</h1>
     wrap it inside parenthesis for multiple lines
 
-#Babel 
+<h3>Babel</h3> 
     -Babel is a JS compiler 
     -Transpiles the code before it reaches the JS Engine and makes it understatndable by the JS engine. By the help of the Babel(JSX to JS).
     -It Converts the JSX to React.createElement - a JS Obj => then to HTMLElement(render)
@@ -132,7 +138,7 @@ jsx example
     -export const Component
     -import {Component} from 'path'
 
-***PROPS***
+<h3>PROPS</h3>
     -properties
     -passing a argument in to function/ components
     -are normal arguments of function
@@ -149,7 +155,7 @@ jsx example
     -website driven by data
     -eg=> based on the location we can present different ui
     -
-**SUPER POWERS OF REACT**
+<h3>SUPER POWERS OF REACT</h3>
     -super fast in DOM Manipulation
     -holds the ui layer and data layer consistently each other
     -When ever state variable updates, react re-renders the component in a very optimized way
@@ -166,7 +172,7 @@ jsx example
     - Load app => render => API_call => populate
     -Whenever state variable update react triggers a reconciliation cycle(re-renders the component)
 
-    #React Hooks
+<h1>React Hooks</h1>
         -normal js functions
         -it is a utilites functions in the react
         -call it iniside the component
@@ -199,8 +205,10 @@ jsx example
                     -if no dependency array useEffect will be called in every render
                     -if there is an dependency empty array => useEffect will be called on initial render  and once.
                     -if dependency array is not empty. iT will be called when the dependecy is changed
+                -> useEffect function returns a function which will be called when unmounting the component.
+                ->React's useEffect hook expects a cleanup function to be returned from it when the component unmounts. Using an async function here will cause a bug as the cleanup function will never get called.
 
-#Routing
+<h3>Routing</h3> 
     -using React Router npm package.
     -have to create routing configuration in app level
     -we import the *createBrowserRouter to config our paths
@@ -226,7 +234,7 @@ microservices
     -single responsibility principle
     -ability of usage of diff languages for each services
 
-#Class based Components
+<h3>Class based Components</h3>
     => A classclass extends React.Component and has a render method, which returns a jsx
     => we pass the props and recieve it in the constructor
     => we have to give the super(props) in the constructor
@@ -253,7 +261,7 @@ microservices
         -> parent constructor() => parent render=> child constructor=> child render => child componentDidMount => parent componentDidMount.
     => when there is multiple child then react optimises the rendering and barches the rendering for the child
 
-#React life Cycle
+<h1>React life Cycle</h1>
     -React has 2 phases
         -->Render Phase
             ->has Constructor and Render
@@ -266,6 +274,7 @@ microservices
             ->runs api calls ie, componentDidMount is called
             ->render data
     => This lide cycle works for every parent and child in react
+    << MOUNTING >>
         =>Parent constructor
         =>Parent Render
             ->First child Constructor
@@ -273,8 +282,37 @@ microservices
             -SEcond child Constructor
             ->Second Child render
         <DOM UPDATED - IN SINGLE BATCH>
-            -> first child componentDidMatch()
-            ->Second Child componentDidMatch()
-        ->Parent componentDidMatch()
+            -> first child componentDidMount()()
+            ->Second Child componentDidMount()()
+        ->Parent componentDidMount()
+    << UPDATION >>
+    render the api(Data)
+    updating the component HTML is called with data
+    then componentDidUpdate is called
 
-e08    => 1.32.41
+    => ComponentDidUpdate
+        => called after the updation completed
+    => ComponentWillUnmount will be called when the component is unloaded from the web page
+        eg-> when we goes to another page
+
+#DeepDiveIntoLifeCycleMethods
+***Dont compare the React Life Cycle Methods with Funcitonal Components**
+**Dont compare the useEffect with componentDidMount()**
+
+<< Mount Update Unmount >>
+**The Mounting Phase begins when a component is first created and inserted into the DOM**.
+**The Updating Phase occurs when a component's state or props change.**
+**And the Unmounting Phase occurs when a component is removed from the DOM**
+
+**LCM that will be called after every update => componentDidUpdate()**
+
+like in the fncitonal component
+    useEffect(cb(),[count]) = will be rendered everytime conunt changes
+in the class component
+    componentDidUpdate(prevProps, prevState){
+        have to check using the if condition
+    }
+    So painful and more code. New React now simplified it.
+
+
+
