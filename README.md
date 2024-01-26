@@ -266,6 +266,15 @@ microservices
             ->runs api calls ie, componentDidMount is called
             ->render data
     => This lide cycle works for every parent and child in react
+        =>Parent constructor
+        =>Parent Render
+            ->First child Constructor
+            ->FIrst Child render
+            -SEcond child Constructor
+            ->Second Child render
+        <DOM UPDATED - IN SINGLE BATCH>
+            -> first child componentDidMatch()
+            ->Second Child componentDidMatch()
+        ->Parent componentDidMatch()
 
-
-e08 => 1.32.41
+e08    => 1.32.41
