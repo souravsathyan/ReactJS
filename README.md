@@ -314,5 +314,14 @@ in the class component
     }
     So painful and more code. New React now simplified it.
 
-
-
+<h1> Optimizing React App </h1>
+<ul>
+    <li>Single Responsibility Principle</li>
+    <li>Creating Custom hooks</li>
+        <p>makes code more readble and modular</p>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+e09 30.12
