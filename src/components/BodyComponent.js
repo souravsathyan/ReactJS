@@ -1,30 +1,38 @@
 import CardsComponent from "./CardComponent"
 import { useState } from "react"
-import { useEffect } from "react"
 import ShimmerComponent from "./ShimmerComponent"
 import { Link } from "react-router-dom"
+import useOnlineStatus from "../utils/useOnlineStatus"
+import useRestList from "../utils/useRestList"
+
 
 const BodyComponent = () => {
-    const [listOfRestaurents, setListOfRestaurents] = useState([])
     const [inputText, setINputText] = useState("")
-    const [filteredRestaurant, setFilteredRestaurant] = useState("")
+    const [listOfRestaurents,filteredRes] = useRestList(null)
+    const [filteredRestaurants, setFilteredRestaurants] = useState(null);
 
-    const fetchData = async () => {
-        const data = await fetch(
-            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=8.516355809395856&lng=76.92165244370699&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-        )
-        const json = await data.json()
-        const dataRes = json.data.cards[4]
-        const { card: { card: { gridElements: { infoWithStyle: { restaurants } } } } } = dataRes;
-        setListOfRestaurents(restaurants)
-        setFilteredRestaurant(restaurants)
+    const onlineStatus = useOnlineStatus()
+
+    const searchData = (searchInput, restaurents)=>{
+        if (inputText == "") {
+            setFilteredRestaurants(restaurents)
+        }
+        const filteredRestaurant = restaurents.filter((res) => res.info.name.toLowerCase().includes(searchInput.toLowerCase()))
+
+        setFilteredRestaurants(filteredRestaurant)
     }
-    useEffect(() => {
-        fetchData()
-    }, [])
 
+    if (onlineStatus === false) {
+        return (
+            <h1>You are Offline, Please check the internet connection</h1>
+        )
+    }
 
-    return listOfRestaurents.length == 0 ? <ShimmerComponent /> : (
+    if (filteredRes.length == 0) {
+        return <ShimmerComponent />
+    }
+
+    return (
         <div className='body'>
             <div className='filter'>
                 <div className="search">
@@ -38,12 +46,7 @@ const BodyComponent = () => {
                     />
                     <button
                         onClick={() => {
-                            if (inputText == "") {
-                                setFilteredRestaurant(listOfRestaurents)
-                            }
-                            const filteredRestaurant = listOfRestaurents.filter((res) => res.info.name.toLowerCase().includes(inputText.toLowerCase()))
-
-                            setFilteredRestaurant(filteredRestaurant)
+                           searchData(inputText,listOfRestaurents)
                         }}
                     >
                         Search
@@ -53,22 +56,16 @@ const BodyComponent = () => {
                     className="filter-btn"
                     onClick={() => {
                         const filteredRes = listOfRestaurents.filter((res) => res.info.avgRating >= 4.2)
-                        setFilteredRestaurant(filteredRes)
+                        setFilteredRestaurants(filteredRes)
                     }}
                 >Top Rated Restaurents</button>
-                <button
-                    className="filter-btn"
-                    onClick={() => {
-                        setFilteredRestaurant(listOfRestaurents)
-                    }}
-                >Back to Normal</button>
             </div>
             <div className='rest-container'>
                 {
-                    filteredRestaurant.map((el) => {
-                        return <Link 
-                        key={el.info.id}
-                        to={'/restaurants/'+el.info.id}
+                    (filteredRestaurants==null? filteredRes : filteredRestaurants).map((el) => {
+                        return <Link
+                            key={el.info.id}
+                            to={'/restaurants/' + el.info.id}
                         >
                             <CardsComponent key={el.info.id} resData={el} />
                         </Link>

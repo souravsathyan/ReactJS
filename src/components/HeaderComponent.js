@@ -1,9 +1,16 @@
 import { LOGO_URL } from "../utils/constants"
-import { useState } from "react"
 import { Link } from "react-router-dom"
+import useOnlineStatus from "../utils/useOnlineStatus"
+import useLocalStorage from "../utils/useLocalStorage"
+import useAuth from "../utils/useAuth"
+import { useNavigate } from "react-router-dom"
 
 const HeaderComponent = () => {
-    const [loginBtn, setLoginBtn] = useState('Login')
+    const onlineStatus = useOnlineStatus()
+    const navigate = useNavigate()
+    const [getLocalStorage] = useLocalStorage("user")
+    const [isLoggedIn,setIsLoggedIn] = useAuth()
+
     return (
         <div className='header'>
             <div className='logo-container'>
@@ -12,14 +19,20 @@ const HeaderComponent = () => {
 
             <div className='nav-items'>
                 <ul>
-                    
+                    <li>Online Status : {onlineStatus === true ? '🟢' : "🔴"}</li>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About Us</Link></li>
                     <li><Link to="/contact">Contact Us</Link></li>
                     <li>Cart</li>
-                    <button onClick={() => {
-                        loginBtn === 'Login' ? setLoginBtn('Logout') : setLoginBtn('Login')
-                    }}>{loginBtn}</button>
+
+                    <li>
+                        {isLoggedIn?(<button onClick={()=>{
+                            setIsLoggedIn(false)
+                            localStorage.clear()
+                        }}>Logout</button>):(<button onClick={()=>{
+                            navigate('/login')
+                        }}>Login</button>)}
+                    </li>
 
                 </ul>
             </div>
