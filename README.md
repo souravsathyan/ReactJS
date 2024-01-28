@@ -340,5 +340,9 @@ in the class component
 </ul>
 
 <h2>Higher Order Components</h2>
-<p>Its a function that takes a component and returns a component. It takes a  component and enhance the component and returns it back
+<p>Its a function that takes a component and returns a component. It takes a  component and enhance the component and returns it back.
 </p>
+<p>HO Component is Pure function, which does not change the behaviour and code of the component </p>
+<p></p>
+
+22.45 e11

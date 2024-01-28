@@ -1,4 +1,4 @@
-import Cards from "./Card"
+import Cards, {withProductLabel}from "./Card"
 import { useState } from "react"
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom"
@@ -13,6 +13,15 @@ const Body = () => {
 
     const onlineStatus = useOnlineStatus()
 
+    // 
+    //withProductLAbel is a higherOrder component which takes a component 
+    // we have passed the Cards Compnent in it
+    // It returns a new component with enhanced feature with promoted label
+    //  
+    //RestaruentCardPromoted is a new component with promoted label.
+    const RestaruentCardPromoted = withProductLabel(Cards)
+
+    // search handler
     const searchData = (searchInput, restaurents) => {
         if (inputText == "") {
             setFilteredRestaurants(restaurents)
@@ -22,12 +31,14 @@ const Body = () => {
         setFilteredRestaurants(filteredRestaurant)
     }
 
+    // checking online status
     if (onlineStatus === false) {
         return (
             <h1>You are Offline, Please check the internet connection</h1>
         )
     }
 
+    // rendering shimmer
     if (filteredRes.length == 0) {
         return <Shimmer />
     }
@@ -80,7 +91,8 @@ const Body = () => {
                             key={el.info.id}
                             to={'/restaurants/' + el.info.id}
                         >
-                            <Cards key={el.info.id} resData={el} />
+                            {el?.info?.oyaltyDiscoverPresentationInfo?.badgeType === "BADGE_TYPE_ONE_LITE" ? <RestaruentCardPromoted key={el.info.id} resData={el}/> : <Cards key={el.info.id} resData={el} />}
+                            
                         </Link>
 
                     })
