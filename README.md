@@ -319,7 +319,14 @@ in the class component
     <li>Single Responsibility Principle</li>
     <li>Creating Custom hooks</li>
         <p>makes code more readble and modular</p>
-    <li></li>
+    <li>Code Splitting / Chunking / Lazy Loading / Dynamic bundling / demand loading </li>
+        <p>*Break our app into smaller pieces/ js files</p>
+        <p>Smaller bundels of the files</p>
+        <p>logically divinding app into smaller bundle</p>
+        <p>should have enough code for a feature</p>
+        <p>While using Lazy loading in react we have to use the Suspense
+            . Because react is very fast and when we access the lazyily loaded component it will take some time to load the component. So at that point of time react will stop the rendering. In order to prevent that we use the suspense and fallback (like a placeholder to show till we load the component.)
+        </p>
     <li></li>
     <li></li>
     <li></li>

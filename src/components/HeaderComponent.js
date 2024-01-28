@@ -10,12 +10,14 @@ const HeaderComponent = () => {
     const navigate = useNavigate()
     const [getLocalStorage] = useLocalStorage("user")
     const [isLoggedIn,setIsLoggedIn] = useAuth()
-
+    
     return (
         <div className='header'>
             <div className='logo-container'>
                 <img className='logo' src={LOGO_URL} />
             </div>
+
+            {isLoggedIn?(<div>Hi, {getLocalStorage?.username}</div>):""}
 
             <div className='nav-items'>
                 <ul>
@@ -23,6 +25,7 @@ const HeaderComponent = () => {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About Us</Link></li>
                     <li><Link to="/contact">Contact Us</Link></li>
+                    <li><Link to="/grocery">Grocery</Link></li>
                     <li>Cart</li>
 
                     <li>
