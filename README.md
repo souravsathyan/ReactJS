@@ -332,8 +332,13 @@ in the class component
 <h3>Styling</h3>
 <ul>
     <li>Taiwind</li>
+    <p>Tail wind is light weight because it will only import requierd or used css class in the app. for eg. if we use the m-4 class mltiple times :: tailwind only import it once</p>
     <li>Ant design</li>
     <li>Chakra ui</li>
     <li>material ui</li>
     <li>Styled components</li>
 </ul>
+
+<h2>Higher Order Components</h2>
+<p>Its a function that takes a component and returns a component. It takes a  component and enhance the component and returns it back
+</p>

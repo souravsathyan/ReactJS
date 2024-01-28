@@ -1,13 +1,13 @@
-import ShimmerComponent from "./ShimmerComponent"
+import Shimmer from "./Shimmer"
 import {useParams} from "react-router-dom"
 import useRestaurentMenu from "../utils/useRestaurant";
 
-const RestMenuComponent = () => {
+const RestMenu = () => {
   const {resId} = useParams()
   const restInfo = useRestaurentMenu(resId)
 
   if (restInfo === null) {
-    return <ShimmerComponent />;
+    return <Shimmer />;
   }
 
   const { name, cuisines } = restInfo.cards[0].card.card.info;
@@ -20,10 +20,10 @@ const RestMenuComponent = () => {
       <h1>{name}</h1>
       <p>{cuisines.join(',')}</p>
       <ul>
-        {itemCards.map((item) => <li key={item.card.info.id}>{item.card.info.name} - Rs.{item.card.info.price / 100}</li>)}
+        {itemCards.map((item) => <li key={item?.card?.info?.id}>{item?.card?.info?.name} - Rs.{item?.card?.info?.price / 100}</li>)}
       </ul>
     </div>
   );
 };
 
-export default RestMenuComponent
+export default RestMenu

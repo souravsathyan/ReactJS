@@ -1,23 +1,21 @@
 import React, { Suspense, lazy } from 'react'
 import ReactDOM from 'react-dom/client'
-import HeaderComponent from './components/HeaderComponent'
-import BodyComponent from './components/BodyComponent'
+import Header from './components/Header'
+import Body from './components/Body'
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
-// import AboutComponent from './components/AboutComponent'
-import ContactComponent from './components/ContactComponent'
-import ErrorComponent from './components/ErrorComponent'
-import RestMenuComponent from './components/RestMenuComponent'
+import Contact from './components/Contact'
+import Error from './components/Error'
+import RestMenu from './components/RestMenu'
 import Login from './components/login'
 import Footer from './components/footer'
-// import Grocery from './components/Grocery'
 
 const Grocery = lazy(()=>import('./components/Grocery'))
-const About = lazy(()=>import('./components/AboutComponent'))
+const About = lazy(()=>import('./components/About'))
 
 const AppLayout = () => {
     return (
         <div className="app">
-            <HeaderComponent />
+            <Header />
             <div className='container'>
                 <Outlet />
             </div>
@@ -33,7 +31,7 @@ const appRouter = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <BodyComponent />
+                element: <Body />
             },
             {
                 path: "/about",
@@ -46,11 +44,11 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: '/contact',
-                element: <ContactComponent />
+                element: <Contact />
             },
             {
                 path: '/restaurants/:resId',
-                element: <RestMenuComponent />
+                element: <RestMenu />
             },
             {
                 path: '/grocery',
@@ -59,9 +57,13 @@ const appRouter = createBrowserRouter([
                       <Grocery />
                     </Suspense>
                   ),
+            },
+            {
+                path:'/login',
+                element:<Login/>
             }
         ],
-        errorElement: <ErrorComponent />
+        errorElement: <Error />
     },
 ])
 

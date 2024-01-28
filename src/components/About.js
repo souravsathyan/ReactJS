@@ -2,7 +2,7 @@ import User from "./User"
 import UserClass from "./UserClass"
 import { Component } from "react"
 
-class AboutComponent extends Component {
+class About extends Component {
 
     constructor(props){
         super(props)
@@ -21,4 +21,4 @@ class AboutComponent extends Component {
     }
 }
 
-export default AboutComponent
+export default About

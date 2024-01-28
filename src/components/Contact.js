@@ -1,4 +1,4 @@
-const ContactComponent = ()=>{
+const Contact = ()=>{
     return (
         <div>
             <h1>Contact Us</h1>
@@ -6,4 +6,4 @@ const ContactComponent = ()=>{
     )
 }
 
-export default ContactComponent
+export default Contact
