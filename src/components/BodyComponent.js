@@ -8,12 +8,12 @@ import useRestList from "../utils/useRestList"
 
 const BodyComponent = () => {
     const [inputText, setINputText] = useState("")
-    const [listOfRestaurents,filteredRes] = useRestList(null)
+    const [listOfRestaurents, filteredRes] = useRestList(null)
     const [filteredRestaurants, setFilteredRestaurants] = useState(null);
 
     const onlineStatus = useOnlineStatus()
 
-    const searchData = (searchInput, restaurents)=>{
+    const searchData = (searchInput, restaurents) => {
         if (inputText == "") {
             setFilteredRestaurants(restaurents)
         }
@@ -35,34 +35,35 @@ const BodyComponent = () => {
     return (
         <div className='body'>
             <div className='filter'>
-                <div className="search">
+                <div className="flex justify-center items-center  h-[250px] bg-slate-900">
                     <input
                         type="text"
-                        className="search-box"
+                        className="block w-80 rounded-md border-0  text-gray-900 ring-1 ring-inset"
+                        placeholder="Search Restaurant"
                         value={inputText}
                         onChange={(e) => {
                             setINputText(e.target.value)
                         }}
                     />
-                    <button
+                    <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 ms-4"
                         onClick={() => {
-                           searchData(inputText,listOfRestaurents)
+                            searchData(inputText, listOfRestaurents)
                         }}
                     >
                         Search
                     </button>
                 </div>
-                <button
+                {/* <button
                     className="filter-btn"
                     onClick={() => {
                         const filteredRes = listOfRestaurents.filter((res) => res.info.avgRating >= 4.2)
                         setFilteredRestaurants(filteredRes)
                     }}
-                >Top Rated Restaurents</button>
+                >Top Rated Restaurents</button> */}
             </div>
             <div className='rest-container'>
                 {
-                    (filteredRestaurants==null? filteredRes : filteredRestaurants).map((el) => {
+                    (filteredRestaurants == null ? filteredRes : filteredRestaurants).map((el) => {
                         return <Link
                             key={el.info.id}
                             to={'/restaurants/' + el.info.id}

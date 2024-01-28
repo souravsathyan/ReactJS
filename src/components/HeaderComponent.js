@@ -12,23 +12,23 @@ const HeaderComponent = () => {
     const [isLoggedIn,setIsLoggedIn] = useAuth()
     
     return (
-        <div className='header'>
-            <div className='logo-container'>
-                <img className='logo' src={LOGO_URL} />
+        <div className='flex justify-between px-[100px] shadow-lg  bg-orange-400'>
+            <div className='logo-container my-auto   '>
+                <img className='logo w-[100px] rounded-full p-[9px]' src={LOGO_URL} />
             </div>
 
             {isLoggedIn?(<div>Hi, {getLocalStorage?.username}</div>):""}
 
             <div className='nav-items'>
-                <ul>
-                    <li>Online Status : {onlineStatus === true ? '🟢' : "🔴"}</li>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About Us</Link></li>
-                    <li><Link to="/contact">Contact Us</Link></li>
-                    <li><Link to="/grocery">Grocery</Link></li>
-                    <li>Cart</li>
+                <ul className="flex p-4 m-4">
+                    <li className="m-2">Online Status : {onlineStatus === true ? '🟢' : "🔴"}</li>
+                    <li className="m-2" ><Link to="/">Home</Link></li>
+                    <li className="m-2" ><Link to="/about">About Us</Link></li>
+                    <li className="m-2" ><Link to="/contact">Contact Us</Link></li>
+                    <li className="m-2" ><Link to="/grocery">Grocery</Link></li>
+                    <li className="m-2" >Cart</li>
 
-                    <li>
+                    <li className="m-2">
                         {isLoggedIn?(<button onClick={()=>{
                             setIsLoggedIn(false)
                             localStorage.clear()

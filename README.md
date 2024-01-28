@@ -327,8 +327,13 @@ in the class component
         <p>While using Lazy loading in react we have to use the Suspense
             . Because react is very fast and when we access the lazyily loaded component it will take some time to load the component. So at that point of time react will stop the rendering. In order to prevent that we use the suspense and fallback (like a placeholder to show till we load the component.)
         </p>
-    <li></li>
-    <li></li>
-    <li></li>
 </ul>
-e09 30.12
+
+<h3>Styling</h3>
+<ul>
+    <li>Taiwind</li>
+    <li>Ant design</li>
+    <li>Chakra ui</li>
+    <li>material ui</li>
+    <li>Styled components</li>
+</ul>
