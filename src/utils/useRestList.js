@@ -15,6 +15,8 @@ const useRestList = () => {
       );
       const json = await data.json();
       const dataRes =await json.data.cards[4];
+      console.log(json)
+      
       const { card: { card: { gridElements: { infoWithStyle: { restaurants } } } } } = dataRes;
       setListOfRestaurents(restaurants);
       setFilteredRestaurants(restaurants)

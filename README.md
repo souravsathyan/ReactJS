@@ -345,4 +345,13 @@ in the class component
 <p>HO Component is Pure function, which does not change the behaviour and code of the component </p>
 <p></p>
 
-22.45 e11
+<h5>All React application has 2 layer. One is UI layer and another is data layer</h5><br>
+<h5>UI layer is powered by data</h5>
+
+Controlled and uncontrolled components
+    if the component is cnotrolling itself ie, its state then it is a uncontrolled component.
+    if the component is controlled by the its parent component the it is a controlled component.
+
+LIFTING STATE UP
+
+2.08.52
