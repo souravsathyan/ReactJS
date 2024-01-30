@@ -353,5 +353,22 @@ Controlled and uncontrolled components
     if the component is controlled by the its parent component the it is a controlled component.
 
 LIFTING STATE UP
+    when we want the state of the two components to always change together. We will will remove the state from children to the parent and pass down the state to the childrens via props.   
 
-2.08.52
+PROPS DRILLING
+    passing the data via props to the deeper children.
+    To bypass this we use the reactContext.
+    context is like a global place where we place data that can accessed by every component.
+
+React Context
+    import createContext from react
+    we pass a default value
+    we can access the value anywhere in app using a hook called useContext.
+    in the hook useContext(createdContex) we pass the context we created
+    this is the created context const userContext = createContext({loggedInUser:'default user'})
+    we only keep those data, that are required across the components
+    this is how we access the data const {loggedInUser,setUserName} = useContext(userContext)
+    we can over ride the value of the context by using the useContext.Provider value={}
+        in the value we can pass the changed value that is a state variable as well as state setfunction
+    Also we can use the context on specific component only
+    

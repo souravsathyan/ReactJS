@@ -7,7 +7,6 @@ const useLocalStorage = (key)=>{
     const [getLocalStorage, setLocalStorageValue] = useState(
         localStorageValue ? JSON.parse(localStorageValue) : null
     )
-
     useEffect(()=>{
         if(localStorageValue){
             setLocalStorageValue(JSON.parse(localStorageValue))

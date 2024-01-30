@@ -2,6 +2,8 @@ import * as Yup from "yup"
 import { Formik } from "formik"
 import useLocalStorage from "../utils/useLocalStorage"
 import { useNavigate } from "react-router-dom"
+import userContext from "../utils/userContext"
+import { useContext } from "react"
 
 // create schema using Yup
 const schema = Yup.object().shape({
@@ -17,6 +19,7 @@ const initialValues = {
 const Login = () => {
     const navigate = useNavigate()
     const [getLocalStorage, setLocalStorage] = useLocalStorage("user")
+    const {setUserName} = useContext(userContext)
 
     const handleSubmit = (values) => {
         let index = values?.email.indexOf('@')
@@ -31,10 +34,11 @@ const Login = () => {
 
         setLocalStorage({
             ...getLocalStorage,
-            "username": name,
+            "userName": name,
             "token": randomStringWithChar()
         })
         navigate(-1)
+        setUserName(name)
     }
 
 

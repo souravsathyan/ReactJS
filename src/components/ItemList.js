@@ -1,7 +1,6 @@
 import { REST_MENU_ITEM_IMG_URL } from "../utils/constants"
 
-const ItemList = ({ items }) => {
-    console.log(items)
+const ItemList = ({ items }) => {   
     return (
         <div>
             {

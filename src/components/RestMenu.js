@@ -14,10 +14,8 @@ const RestMenu = () => {
     return <Shimmer />;
   }
 
+  // extracting data
   const { name, cuisines, avgRating, totalRatingsString, locality, areaName, city } = restInfo.cards[0].card.card.info;
-
-
-
   const categories = restInfo.cards[2].groupedCard.cardGroupMap.REGULAR.cards.filter(
     (c) =>
       c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
@@ -52,9 +50,5 @@ const RestMenu = () => {
     </div>
   );
 };
-// {/* <h1>{name}</h1>
-//       <p>{cuisines.join(',')}</p>
-//       <ul>
-//         {itemCards.map((item) => <li key={item?.card?.info?.id}>{item?.card?.info?.name} - Rs.{item?.card?.info?.price / 100}</li>)}
-//       </ul> */}
+
 export default RestMenu

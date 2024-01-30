@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react'
+import React, { Suspense, lazy, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import Header from './components/Header'
 import Body from './components/Body'
@@ -8,19 +8,27 @@ import Error from './components/Error'
 import RestMenu from './components/RestMenu'
 import Login from './components/login'
 import Footer from './components/footer'
+import userContext from './utils/userContext'
+import useLocalStorage from './utils/useLocalStorage'
 
-const Grocery = lazy(()=>import('./components/Grocery'))
-const About = lazy(()=>import('./components/About'))
+const Grocery = lazy(() => import('./components/Grocery'))
+const About = lazy(() => import('./components/About'))
 
 const AppLayout = () => {
+    const {userName} = JSON.parse(localStorage.getItem("user")) || ""
+    const [getUserName,setUserName] = useState(userName||"")
+    console.log(getUserName, userName)
+
     return (
-        <div className="app">
-            <Header />
-            <div className='container'>
-                <Outlet />
+        <userContext.Provider value={{loggedInUser:getUserName, setUserName}}>
+            <div className="app">
+                <Header />
+                <div className='container'>
+                    <Outlet />
+                </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
+        </userContext.Provider>
     )
 }
 
@@ -37,10 +45,10 @@ const appRouter = createBrowserRouter([
                 path: "/about",
                 element: (
                     <Suspense fallback={<h1>About Component</h1>}>
-                        <About/>
+                        <About />
                     </Suspense>
                 )
-                
+
             },
             {
                 path: '/contact',
@@ -54,13 +62,13 @@ const appRouter = createBrowserRouter([
                 path: '/grocery',
                 element: (
                     <Suspense fallback={<h1>Loading....</h1>}>
-                      <Grocery />
+                        <Grocery />
                     </Suspense>
-                  ),
+                ),
             },
             {
-                path:'/login',
-                element:<Login/>
+                path: '/login',
+                element: <Login />
             }
         ],
         errorElement: <Error />

@@ -4,12 +4,14 @@ import useOnlineStatus from "../utils/useOnlineStatus"
 import useLocalStorage from "../utils/useLocalStorage"
 import useAuth from "../utils/useAuth"
 import { useNavigate } from "react-router-dom"
+import { useContext } from "react"
+import userContext from "../utils/userContext"
 
 const Header = () => {
     const onlineStatus = useOnlineStatus()
     const navigate = useNavigate()
-    const [getLocalStorage] = useLocalStorage("user")
     const [isLoggedIn,setIsLoggedIn] = useAuth()
+    const {loggedInUser,setUserName} = useContext(userContext)
     
     return (
         <div className='flex justify-between px-[100px] shadow-lg  bg-orange-400'>
@@ -17,7 +19,7 @@ const Header = () => {
                 <img className='logo w-[100px] rounded-full p-[9px]' src={LOGO_URL} />
             </div>
 
-            {isLoggedIn?(<div>Hi, {getLocalStorage?.username}</div>):""}
+            
 
             <div className='nav-items'>
                 <ul className="flex p-4 m-4">
@@ -35,6 +37,8 @@ const Header = () => {
                             navigate('/login')
                         }}>Login</button>)}
                     </li>
+                    {isLoggedIn?(<button className="px-2 h-[2.5rem]  bg-slate-300 rounded-lg">{loggedInUser}<span className="text-xs ms-1">🟢</span></button>):""}
+                    
                 </ul>
                 
             </div>

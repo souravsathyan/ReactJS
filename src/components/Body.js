@@ -1,18 +1,19 @@
 import Cards, {withProductLabel}from "./Card"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom"
 import useOnlineStatus from "../utils/useOnlineStatus"
 import useRestList from "../utils/useRestList"
+import userContext from "../utils/userContext"
+import useAuth from "../utils/useAuth"
 
 
 const Body = () => {
     const [inputText, setINputText] = useState("")
     const [listOfRestaurents, filteredRes] = useRestList(null)
     const [filteredRestaurants, setFilteredRestaurants] = useState(null);
-
     const onlineStatus = useOnlineStatus()
-
+    const {setUserName} = useContext(userContext)
     // 
     //withProductLAbel is a higherOrder component which takes a component 
     // we have passed the Cards Compnent in it
@@ -42,11 +43,15 @@ const Body = () => {
     if (filteredRes.length == 0) {
         return <Shimmer />
     }
-
+    
     return (
         <div className='body'>
             
-                <div className="flex justify-center  items-center filter h-[250px] bg-slate-900">
+                <div className="flex flex-col justify-evenly  items-center filter h-[250px] bg-slate-900">
+                    <div className="">
+                        <h1 className="text-slate-50 text-3xl font-bold">Welcome to Foodoo 🍔</h1>
+                    </div>
+                    <div className="flex">
                     <input
                         type="text"
                         className="block p-2 w-80 rounded-md border-0  text-gray-900 ring-1 ring-inset"
@@ -64,6 +69,7 @@ const Body = () => {
                     >
                         Search
                     </button>
+                    </div>
                 </div>
                 
             
@@ -82,6 +88,7 @@ const Body = () => {
                     onClick={()=>{
                         setFilteredRestaurants(listOfRestaurents)
                     }} >Clear filter</button>
+                   
                 </div>
 
                 <div className="flex flex-wrap px-[100px]">
