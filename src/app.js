@@ -10,25 +10,29 @@ import Login from './components/login'
 import Footer from './components/footer'
 import userContext from './utils/userContext'
 import useLocalStorage from './utils/useLocalStorage'
+import { Provider } from "react-redux"
+import appStore from './utils/appStore'
 
 const Grocery = lazy(() => import('./components/Grocery'))
 const About = lazy(() => import('./components/About'))
 
 const AppLayout = () => {
-    const {userName} = JSON.parse(localStorage.getItem("user")) || ""
-    const [getUserName,setUserName] = useState(userName||"")
+    const { userName } = JSON.parse(localStorage.getItem("user")) || ""
+    const [getUserName, setUserName] = useState(userName || "")
     console.log(getUserName, userName)
 
     return (
-        <userContext.Provider value={{loggedInUser:getUserName, setUserName}}>
-            <div className="app">
-                <Header />
-                <div className='container'>
-                    <Outlet />
+        <Provider store={appStore}>
+            <userContext.Provider value={{ loggedInUser: getUserName, setUserName }}>
+                <div className="app">
+                    <Header />
+                    <div className='container'>
+                        <Outlet />
+                    </div>
+                    <Footer />
                 </div>
-                <Footer />
-            </div>
-        </userContext.Provider>
+            </userContext.Provider>
+        </Provider>
     )
 }
 

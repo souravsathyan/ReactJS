@@ -6,12 +6,14 @@ import useAuth from "../utils/useAuth"
 import { useNavigate } from "react-router-dom"
 import { useContext } from "react"
 import userContext from "../utils/userContext"
+import {useSelector} from "react-redux"
 
 const Header = () => {
     const onlineStatus = useOnlineStatus()
     const navigate = useNavigate()
     const [isLoggedIn,setIsLoggedIn] = useAuth()
     const {loggedInUser,setUserName} = useContext(userContext)
+    const cart = useSelector((store)=>store.cart.items)
     
     return (
         <div className='flex justify-between px-[100px] shadow-lg  bg-orange-400'>
@@ -28,7 +30,7 @@ const Header = () => {
                     <li className="font-semibold m-2" ><Link to="/about">About Us</Link></li>
                     <li className="font-semibold m-2" ><Link to="/contact">Contact Us</Link></li>
                     <li className="font-semibold m-2" ><Link to="/grocery">Grocery</Link></li>
-                    <li className="font-semibold m-2" >Cart</li>
+                    <li className="m-2 font-bold" >Cart ({cart.length})</li>
                     <li className="m-2">
                     {isLoggedIn?(<button className="bg-red-400 font-semibold rounded-lg px-2 py-1" onClick={()=>{
                             setIsLoggedIn(false)

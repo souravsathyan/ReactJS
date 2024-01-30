@@ -361,6 +361,7 @@ PROPS DRILLING
     context is like a global place where we place data that can accessed by every component.
 
 React Context
+
     import createContext from react
     we pass a default value
     we can access the value anywhere in app using a hook called useContext.
@@ -372,3 +373,50 @@ React Context
         in the value we can pass the changed value that is a state variable as well as state setfunction
     Also we can use the context on specific component only
     
+#REDUX toolkit
+
+    -install @reduxjs/toolkit and react-redux
+    -state management
+    -easy debugging
+    -seperate libraru than react
+    -heavily used with react
+
+Redux store 
+
+    is like a object which is placed in a global central place
+    in the store there is slice of datas 
+        eg. there can be a slice for cart, user
+    workflow
+        click action => dispatches action => calls reducer function => modifies the slice of redux store => using selector we can select the data in store (subscribing to the store)
+
+Setup
+
+    -create store
+        -using configureStore from redux/toolkit helps to create store
+        -we have to setup the store in app level
+        -import provider from react-redux lib.
+        -wrap app component in the <Provider store={appStore}> and pass the store as props
+
+    -create slices
+        -will be created by a function known as createSlice from RTK
+        -give the details in the fnction name, initial state,reducer functions correspoding to each action.
+        -actions can be anything add item, remove, etc.
+        -in reducer we give functions to each actions
+            reducer:{addItem:(), removeItem:()}
+        -these functions have access to the state and action.payload
+        -then export the slice.action and slice.redcer from the slice file
+        -the reduces are mtating the state
+
+    -then add the slice to the appStore
+        -in app store have a reducer it is a big reducer app level.
+        -in this redcer contains the reducers of the slice
+        -
+        -
+    
+    -read the data from the store
+        - we have to subscribe to the store using a selector
+        -Selectore is a hook in react
+            => useSelector hook from react-redux lib
+            => gives access to the store
+
+    1.20 e012
