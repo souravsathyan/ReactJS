@@ -172,111 +172,108 @@ jsx example
    - website driven by data
    - eg=> based on the location we can present different ui
    -
-<h3>SUPER POWERS OF REACT</h3>
-    -super fast in DOM Manipulation
-    -holds the ui layer and data layer consistently each other
-    -When ever state variable updates, react re-renders the component in a very optimized way
-    -Uses Reconciliation Algorithm (aka React Fiber) (React 16)
-        -new way of finding the Diff and updating / re-render the DOM
-        -
-        -Virtual Dom
-             => is a object representation of actual DOM
-             => normal js Object
-             => 
-        -Diff Algorithm
-            => 
-    -react has faster rendering mechanism
-    - Load app => render => API_call => populate
-    -Whenever state variable update react triggers a reconciliation cycle(re-renders the component)
+## SUPER POWERS OF REACT
+- Super fast in DOM Manipulation
+- Holds the UI layer and data layer consistently with each other
+- Whenever a state variable updates, React re-renders the component in a very optimized way
+- Uses Reconciliation Algorithm (aka React Fiber) (React 16)
+  - New way of finding the Diff and updating / re-rendering the DOM
+  - Virtual DOM
+    - Object representation of the actual DOM
+    - Normal JavaScript Object
+  - Diff Algorithm
+- React has a faster rendering mechanism
+- Load app => render => API_call => populate
+- Whenever a state variable updates, React triggers a reconciliation cycle (re-renders the component)
 
-<h1>React Hooks</h1>
-        -normal js functions
-        -it is a utilites functions in the react
-        -call it iniside the component
-        -top of the function
-        -does not create state inside the if condition and inside the function and in the loops
-        -
-        -
-        -2 important Hooks
-            -useState()
-                -uses when we want to create a dynamic variable
-                -
-                -generate super powerful react variables
-                -to create state variable
-                -keeps track on the variables and when ever there is a changes in the variable, react trigger the diff algo and automatically updates the UI
-                -keeps the UI in sync with the data variable
-                -usage
-                    -import from react
-                    -like a named import 
-                    -const [variableName, setVariableName] = useState(defaultData)
-                        -when using useState() it will give us a state variable and we recive it inside an array
-                    -setVariableName used for triggering the diff algorithm for finding the difference and re-rendering/updating
 
-            -useEffect()
-                -2 parameters
-                    1.Callback function*
-                        1.1 called after the component rendered
-                    2.dependency
-                -useEffect will be called after every time the component rendered
-                -dependency array changes the behaviour of the render
-                    -if no dependency array useEffect will be called in every render
-                    -if there is an dependency empty array => useEffect will be called on initial render  and once.
-                    -if dependency array is not empty. iT will be called when the dependecy is changed
-                -> useEffect function returns a function which will be called when unmounting the component.
-                ->React's useEffect hook expects a cleanup function to be returned from it when the component unmounts. Using an async function here will cause a bug as the cleanup function will never get called.
+## React Hooks
+- Normal JavaScript functions
+- Utility functions in React
+- Call inside the component, at the top of the function
+- Does not create state inside if conditions, functions, or loops
 
-<h3>Routing</h3> 
-    -using React Router npm package.
-    -have to create routing configuration in app level
-    -we import the *createBrowserRouter to config our paths
-    -configuration is a list of Objects
-    -*RouterProvider component gives the routing configration to our App
-    -with useRouterError hook by the react-router-dom we can access more details about the error occured
-    -*Outlet component will render the child route according to the path ie, the outlet will be filled with the component A2 path.
-    -*Link for navigating
-    -link is a wrapper around the anchor tag. 
-        -Link will keep a track on the anchor tag and prevents from the page refresh
+### 2 important Hooks:
+1. `useState()`
+    - Used when we want to create a dynamic variable
+    - Generates super powerful React variables
+    - Creates state variable
+    - Keeps track of the variables, and whenever there is a change, React triggers the diff algorithm and automatically updates the UI
+    - Keeps the UI in sync with the data variable
+    - Usage:
+        - Import from React
+        - Like a named import
+        - `const [variableName, setVariableName] = useState(defaultData)`
+        - `setVariableName` is used for triggering the diff algorithm for finding the difference and re-rendering/updating
+
+2. `useEffect()`
+    - Takes 2 parameters:
+        1. Callback function
+            - Called after the component is rendered
+        2. Dependency array
+    - `useEffect()` will be called after every time the component is rendered
+    - Dependency array changes the behavior of the render:
+        - If no dependency array, `useEffect()` will be called in every render
+        - If there is an empty dependency array, `useEffect()` will be called on initial render and once
+        - If dependency array is not empty, it will be called when the dependency is changed
+    - `useEffect()` function returns a function which will be called when unmounting the component
+    - React's `useEffect()` hook expects a cleanup function to be returned from it when the component unmounts. Using an async function here will cause a bug as the cleanup function will never get called.
+
+
+**Routing** 
+- using React Router npm package.
+- have to create routing configuration in app level
+- we import the *createBrowserRouter to config our paths
+- configuration is a list of Objects
+- *RouterProvider component gives the routing configration to our App
+- with useRouterError hook by the react-router-dom we can access more details about the error occured
+- *Outlet component will render the child route according to the path ie, the outlet will be filled with the component A2 path.
+- *Link for navigating
+- link is a wrapper around the anchor tag. 
+  - Link will keep a track on the anchor tag and prevents from the page refresh
         -
-    -*useParam hook used to read the params from the route
-    -2 Types of Routing 
-        -client-side Routing
-            -components are loaded 
-            -not feetching new pages
-            -just a one page. the components are changed.
-        -Server-side Routing
-            -reloads the webpage
+- *useParam hook used to read the params from the route
+  - 2 Types of Routing 
+    - client-side Routing
+      - components are loaded 
+      - not feetching new pages
+      - just a one page. the components are changed.
+    - Server-side Routing
+      - reloads the webpage
 
+<p>
 microservices
     -seperation of concern
     -single responsibility principle
     -ability of usage of diff languages for each services
+</p>
 
-<h3>Class based Components</h3>
-    => A classclass extends React.Component and has a render method, which returns a jsx
-    => we pass the props and recieve it in the constructor
-    => we have to give the super(props) in the constructor
-        ->to inherit the properties of the parent
-        ->
-    =>Loading a component == creating a instance of class
-    =>we create state variable in the constructor
-        ->it is an object
-        ->we can create multiple state variables by increasing the properties
-        ->
-    => react gives this.setState => for updating the state variable
-        ->we pass the object containing the to be update data.
-        ->we can batch mltiple state variables
-        ->
-    =>mounting / work flow of class based component
-        -> parent constructor => parent render => child constructor => child render
-    =>componentDidMount(){} => will be called after the component is mounted.
-        =>to make api calls
-        =>similar to useEffect = because we call the api after the component is loaded.
-        =>we dont want component to render till api returns data
-        =>So react quickly render the component and renders the data from the api.
+## Class based Components
+- A classclass extends React.Component and has a render method, which returns a jsx
+- we pass the props and recieve it in the constructor
+- we have to give the super(props) in the constructor
+    - to inherit the properties of the parent
+        
+- Loading a component == creating a instance of class
+- we create state variable in the constructor
+    - it is an object
+    - we can create multiple state variables by increasing the properties
+        
+- react gives this.setState => for updating the state variable
+    - we pass the object containing the to be update data.
+    - we can batch mltiple state variables
+        
+- mounting / work flow of class based component
+    - parent constructor => parent render => child constructor => child render
+- componentDidMount(){} => will be called after the component is mounted.
+- to make api calls
+- similar to useEffect = because we call the api after the component is loaded.
+- we dont want component to render till api returns data
+- So react quickly render the component and renders the data from the api.
         =>
-    =>when the parent and child have the componentDidMount() then
-        -> parent constructor() => parent render=> child constructor=> child render => child componentDidMount => parent componentDidMount.
-    => when there is multiple child then react optimises the rendering and barches the rendering for the child
+- when the parent and child have the componentDidMount() then
+        - parent constructor() => parent render=> child constructor=> child render => child componentDidMount => parent componentDidMount.
+- when there is multiple child then react optimises the rendering and barches the rendering for the child
 
 <h1>React life Cycle</h1>
     -React has 2 phases
