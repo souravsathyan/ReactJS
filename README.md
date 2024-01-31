@@ -5,107 +5,125 @@ links{
 }
 
 "We write code first for human then for machines"
-<h1>React</h1> 
-react
+#React
     -core of reacr library
     -for creating react components, handling component lifecycle and state management
-reactDOM 
+#reactDOM 
     -for working with DOM
     -rendering react components into DOM
 
-react element - Dom element
+#react element - Dom element
 
-React.createElement("elementName",{id/class},"content"/can be anthoter reactELement / can be an array of reactELement)
+<p>
+    React.createElement("elementName",{id/class},"content"/can be another reactElement / can be an array of reactElement)
     -it creates an object
-    -when we renders it into the DOM it becomes an Element
+    -when we render it into the DOM it becomes an Element
+</p>
 
-ReactRoot = for creating a root to inject the reactElement
-    - ReactDOM.createRoot(document.getElmentById("root))
+<p>
+    ReactRoot = for creating a root to inject the reactElement
+    - ReactDOM.createRoot(document.getElementById("root))
+</p>
 
-React Component
+<p>
+    React Component
     -component
         2-types
             -class based components (oldest method)
             -functional components (new method)
-    -just a js function which returns a jsx element
+    -just a js function which returns a JSX element
     -starts with capital letter
-    -easy defenition => a fnction which returns a jsx element
+    -easy definition => a function which returns a JSX element
+</p>
 
-COMPONENT COMPOSITION
-    -Inserting component in another component 
+<p>
+    COMPONENT COMPOSITION
+    -Inserting component in another component
+</p>
 
-package.json = configuration for npm and tracks the version of the npm
+<p>
+    package.json = configuration for npm and tracks the version of the npm
+</p>
 
-package-lock.json = keeps all the records of the versions that are used while the developement of the application.
+<p>
+    package-lock.json = keeps all the records of the versions that are used while the development of the application.
+</p>
 
-node_modules = like a database that need to function for the npm packages
+<p>
+    node_modules = like a database that is needed to function for the npm packages
+</p>
 
-transitive dependecny = a chain of interlinked components dependent on each other.
-    in npm it is the chain of dependency which are not installed direct but by the direct dependency or trasitive dependency
+<p>
+    transitive dependency = a chain of interlinked components dependent on each other. In npm, it is the chain of dependencies which are not installed directly but by the direct dependency or transitive dependency
+</p>
 
-bundler = used to package the application to be ready for served in browser
+<p>
+    bundler = used to package the application to be ready for serving in the browser
+</p>
 
-tilde(~) and caret(^) in package.json
-    ~ means all future updates without incerementing the minor version. eg. 1.2.3 to 1.3.0
+<p>
+    tilde(~) and caret(^) in package.json
+    ~ means all future updates without incrementing the minor version. eg. 1.2.3 to 1.3.0
     ^ means all future updates without incrementing the major version. eg. 1.2.3 to < 2.0.0
+</p>
 
-npx = used to execute the npm package
+<p>
+    npx = used to execute the npm package
+</p>
 
-<h3>Parcel</h3> 
-    -refer this [https://medium.com/@nikhildhariwal2004/parcel-is-a-beast-an-all-in-one-bundle-for-powerful-web-development-e79f8a70cbd6]
-    -refer docs => https://parceljs.org/
-    - development build
-    -Creates a local server
-    - HMR - hot module replacement - like nodemon
-        -> how? it uses a File Watching Algorith writtent in c++
-    -Faster builds
-        -> how? It caches our code in a space called .parcel-cache so it enables faster builds
-    -Image Optimization
-        - using image transformer
-        -also includes lossless image optimization
-    -Minification of our file when in production mode
-    -Bundling
-    -Compressing
-    -consistent Hashing - generating unique names for cache. to ensure that browser fetches latest files
-    -Differential bundling - bndling differently for each browsers
-    -Diagnostic of errors in terminal
-    -Error Handling = displaying the errors in browsers
-    -HTTPS = can be hosted in https
-    - different dev and prod bundles
-    -Tree Shaking - avaoiding unwanted functions
-    prod build cmd = npx parcel build index.html 
-    -dist folder keeps all the bundeled files
+**Parcel**
+- refer this [https://medium.com/@nikhildhariwal2004/parcel-is-a-beast-an-all-in-one-bundle-for-powerful-web-development-e79f8a70cbd6]
+- refer docs => https://parceljs.org/
+- Development Build
+- Creates a local server
+- HMR - hot module replacement - like nodemon
+  - how? it uses a File Watching Algorithm written in C++
+- Faster builds
+  - how? It caches our code in a space called .parcel-cache so it enables faster builds
+- Image Optimization
+  - using image transformer
+  - also includes lossless image optimization
+- Minification of our file when in production mode
+- Bundling
+- Compressing
+- Consistent Hashing - generating unique names for cache. to ensure that browser fetches latest files
+- Differential bundling - bundling differently for each browser
+- Diagnostic of errors in terminal
+- Error Handling = displaying the errors in browsers
+- HTTPS = can be hosted in https
+- different dev and prod bundles
+- Tree Shaking - avoiding unwanted functions
+- prod build cmd = npx parcel build index.html 
+- dist folder keeps all the bundled files
     
-
-<h3>JSX</h3> 
-    - developed by facebook devlopers
-    -a javascript syntax which is easier to create react 
-    -jsx is different than react
-        -y? jsx is a syntax, jsx makes implementing the react easy
-    -event without jsx we can write react
-    -NOT A HTML IN JS
-    -IT IS HTML LIKE SYNTAX
-    -JSX also creates a object like the React.createElement()
-    -jsx is not a valid js / pure js
-    -js engine not understasnd jsx but parcel transpile code with the help of **Babel** before the code goes to js engine and make it understatndable for the js engine
-    -prevents cross site scripting attacks by sanitizing data
-    -
-
+**JSX**
+   - Developed by Facebook developers.
+   - A JavaScript syntax which is easier to create React.
+   - JSX is different from React because it is a syntax; JSX makes implementing React easy.
+   - Even without JSX, we can write React.
+   - NOT HTML IN JS.
+   - IT IS HTML-LIKE SYNTAX.
+   - JSX also creates an object like the React.createElement().
+   - JSX is not valid JavaScript / pure JavaScript.
+   - JavaScript engines do not understand JSX, but Parcel transpiles code with the help of **Babel** before the code goes to the JavaScript engine and makes it understandable for the JavaScript engine.
+   - Prevents cross-site scripting attacks by sanitizing data.
+    
+<p>
 jsx example
     const heading = React.createElement("h1", { id: "head" }, "React Master Class")
     above is the react elemet using react
     below is react element uing the jsx
     const jsxHeading = <h1>Namaste REact using JSX</h1>
     wrap it inside parenthesis for multiple lines
+</p>
 
-<h3>Babel</h3> 
-    -Babel is a JS compiler 
-    -Transpiles the code before it reaches the JS Engine and makes it understatndable by the JS engine. By the help of the Babel(JSX to JS).
-    -It Converts the JSX to React.createElement - a JS Obj => then to HTMLElement(render)
+**Babel**
+   - Babel is a JS compiler 
+   - Transpiles the code before it reaches the JS Engine and makes it understatndable by the JS engine. By the help of the Babel(JSX to JS).
+   - It Converts the JSX to React.createElement - a JS Obj => then to HTMLElement(render)
         * without jsx  => React.createElement - a JS Obj => then to HTMLElement(render)
-    -
 
-
+```
 // const elem = <span>REac span element</span>
 // const HeadingComponent = () => (
 //     <div>
@@ -119,16 +137,14 @@ jsx example
 //         <h1 className='myHeading'>Namaste React</h1>
 //     </div>
 // )
-
-
 // const TitleComponent = () => {
 //     return <h1>Title</h1>
 // }
-
-
 // // root.render(<HeadingComponent />)
 // root.render(jsxHeading)
+```
 
+<p>
 2 types of Export/Import
     Default Export
     -export default Component
@@ -137,24 +153,25 @@ jsx example
     Named Export 
     -export const Component
     -import {Component} from 'path'
+    </p>
 
-<h3>PROPS</h3>
-    -properties
-    -passing a argument in to function/ components
-    -are normal arguments of function
-    -prop is an object
-    -when we want to add dynamic data. We will use props to pass data to component.
-    -when passing the data using loop we have to pass a unique key
-        -why? for preventing re-renter all the components
-        -by using unique id we can prevent the full re-rendering.
-        -for optimization
-        -**Do not use the index as the keys**
-        -**no keys < index < unique keys**
+**PROPS**
+   - properties
+   - passing a argument in to function/ components
+   - are normal arguments of function
+   - prop is an object
+   - when we want to add dynamic data. We will use props to pass data to component.
+   - when passing the data using loop we have to pass a unique key
+   - why? for preventing re-renter all the components
+   - by using unique id we can prevent the full re-rendering.
+   - for optimization
+   - **Do not use the index as the keys**
+   - **no keys < index < unique keys**
 
-***CONFLICT_DRIVEN-UI***
-    -website driven by data
-    -eg=> based on the location we can present different ui
-    -
+**CONFLICT_DRIVEN-UI**
+   - website driven by data
+   - eg=> based on the location we can present different ui
+   -
 <h3>SUPER POWERS OF REACT</h3>
     -super fast in DOM Manipulation
     -holds the ui layer and data layer consistently each other
