@@ -443,3 +443,43 @@ Setup
     (older version) redux => never mutate state. so we have to make a copy and return it
     (new version) RTK => we have to mutate the state or return a new state. Rest will be taken care of the Redux
         how? In the Back redux uses a Immer library which finds the difference between new & old state and gives back new state which is immutated state. 
+
+##Testing
+- Types of testing
+ - Manual testing
+ - Test cases
+ #Types of test cases(developer)
+ - Unit Testing(dev)
+  - testing react components in Isolation
+  - 
+ - Integration Testing(dev)
+  - Testing the integration of components
+   - eg -> when many components interact with each other
+   -
+ - End to End Testing aka e2e testing
+  - as soon as user lands the app and leaves the app
+  - how user flow across the app
+
+#Test Cases
+- libraries: 
+ - react testing library
+  - built on top of DOM Testing library
+  - when we use the create react app, it included
+  - uses jest: a js testing library
+
+#Unit Test
+- setup
+ - i react -testing library
+ - i jest
+ - i babel dependencies
+ - configure Babel
+ - config parcerc file to default babel transpilatoin of parcel
+
+ ##Note
+ - parcel by default has babel configuration
+ - so if we use jest, esLint than we can disable babel transpilation in parcel
+ - for that we have to modify the .parcelrc file
+
+ e013 - testing 
+ 41.34
+ 
