@@ -405,8 +405,9 @@ Setup
             reducer:{addItem:(), removeItem:()}
         -these functions have access to the state and action.payload
         -then export the slice.action and slice.redcer from the slice file
-        -the reduces are mtating the state
-
+        -the reduces are mutating the state
+        -the reducer function updates the slice
+        -reducers are the combination of the reducers in the slice And in the slice reducers the reducers have the reducer functions which take the crrent state and action and mutate the store. 
     -then add the slice to the appStore
         -in app store have a reducer it is a big reducer app level.
         -in this redcer contains the reducers of the slice
@@ -419,4 +420,12 @@ Setup
             => useSelector hook from react-redux lib
             => gives access to the store
 
-    1.20 e012
+    =>Dispatching Action
+        => we get dispatch action from hook useDispatch from react-redux
+        => we have to import the action from the slice
+    <h1>Very Important</h1>
+        <p>while subscribing to the store we have to be careful while using the selector we have to subscribe to only those we need it in the store.</p>
+
+    (older version) redux => never mutate state. so we have to make a copy and return it
+    (new version) RTK => we have to mutate the state or return a new state. Rest will be taken care of the Redux
+        how? In the Back redux uses a Immer library which finds the difference between new & old state and gives back new state which is immutated state. 

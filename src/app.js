@@ -15,18 +15,18 @@ import appStore from './utils/appStore'
 
 const Grocery = lazy(() => import('./components/Grocery'))
 const About = lazy(() => import('./components/About'))
+const Cart = lazy(()=>import('./components/Cart'))
 
 const AppLayout = () => {
     const { userName } = JSON.parse(localStorage.getItem("user")) || ""
     const [getUserName, setUserName] = useState(userName || "")
-    console.log(getUserName, userName)
 
     return (
         <Provider store={appStore}>
             <userContext.Provider value={{ loggedInUser: getUserName, setUserName }}>
-                <div className="app">
+                <div className="app ">
                     <Header />
-                    <div className='container'>
+                    <div className=''>
                         <Outlet />
                     </div>
                     <Footer />
@@ -73,6 +73,14 @@ const appRouter = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login />
+            },
+            {
+                path:'/cart',
+                element:(
+                    <Suspense fallback={<h1>Cart Loading...</h1>}>
+                        <Cart/>
+                    </Suspense>
+                )
             }
         ],
         errorElement: <Error />

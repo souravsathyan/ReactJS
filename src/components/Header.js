@@ -13,10 +13,11 @@ const Header = () => {
     const navigate = useNavigate()
     const [isLoggedIn,setIsLoggedIn] = useAuth()
     const {loggedInUser,setUserName} = useContext(userContext)
+    // store
     const cart = useSelector((store)=>store.cart.items)
     
     return (
-        <div className='flex justify-between px-[100px] shadow-lg  bg-orange-400'>
+        <div className='sticky z-10 top-0 flex justify-between px-[100px] shadow-lg  bg-orange-400'>
             <div className='logo-container my-auto   '>
                 <img className='logo w-[100px] rounded-full p-[9px]' src={LOGO_URL} />
             </div>
@@ -30,7 +31,7 @@ const Header = () => {
                     <li className="font-semibold m-2" ><Link to="/about">About Us</Link></li>
                     <li className="font-semibold m-2" ><Link to="/contact">Contact Us</Link></li>
                     <li className="font-semibold m-2" ><Link to="/grocery">Grocery</Link></li>
-                    <li className="m-2 font-bold" >Cart ({cart.length})</li>
+                    <li className="m-2 font-bold" ><Link to="/cart">Cart</Link>({cart.length})</li>
                     <li className="m-2">
                     {isLoggedIn?(<button className="bg-red-400 font-semibold rounded-lg px-2 py-1" onClick={()=>{
                             setIsLoggedIn(false)

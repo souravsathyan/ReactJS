@@ -1,6 +1,14 @@
 import { REST_MENU_ITEM_IMG_URL } from "../utils/constants"
+import {addItem} from "../utils/cartSlice"
+import {useDispatch} from "react-redux"
 
-const ItemList = ({ items }) => {   
+const ItemList = ({ items }) => {
+    const dispatch = useDispatch()
+    const handleAddItem = (item)=>{
+        // dispatch action
+        dispatch(addItem(item))
+    }
+
     return (
         <div>
             {
@@ -14,7 +22,7 @@ const ItemList = ({ items }) => {
                         </div>
                         <div className="relative my-auto">
                             <img className="w-[200px] h-[150px] object-cover rounded-lg" alt="Item image" src={REST_MENU_ITEM_IMG_URL+item.card.info.imageId}/>
-                            <button className="absolute top-[7rem] left-0 right-0 bg-slate-50 w-fit m-auto py-1 px-8 border-slate-400 border text-sm rounded-lg text-green-600 font-bold hover:border-green-500">ADD</button>
+                            <button type="button" className="absolute top-[7rem] left-0 right-0 bg-slate-50 w-fit m-auto py-1 px-8 border-slate-400 border text-sm rounded-lg text-green-600 font-bold hover:border-green-500" onClick={()=>handleAddItem(item)}>ADD</button>
                         </div>
                     </div>
 
