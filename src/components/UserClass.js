@@ -5,23 +5,23 @@ class UserClass extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            userInfo:{
-                name:"",
-                avtar:""
+            userInfo: {
+                name: "",
+                avtar: ""
             }
         }
     }
 
-   async componentDidMount() {
+    async componentDidMount() {
         const data = await fetch("https://api.github.com/users/akshaymarch7")
         const json = await data.json()
         this.setState({
-            userInfo:json
+            userInfo: json
         })
     }
 
     render() {
-        const {name,avatar_url, location} = this.state.userInfo
+        const { name, avatar_url, location } = this.state.userInfo
         return (
             <div className="about-card">
                 <div>
@@ -30,7 +30,7 @@ class UserClass extends React.Component {
                     <p>Contact : 8921834447</p>
                 </div>
                 <div className="about-image-container">
-                <img src={avatar_url} width={"100px"} height={"100px"} />
+                    <img src={avatar_url} width={"100px"} height={"100px"} />
                 </div>
             </div>
         )

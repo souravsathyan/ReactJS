@@ -39,7 +39,7 @@ const RestMenu = () => {
 
       {
         categories.map((c, index) => <RestaurantCategory key={c?.card?.card.title} data={c?.card?.card} showItems={index === showIndex ? true : false} setShowIndex={() => {
-          if(index==showIndex){
+          if (index == showIndex) {
             return setShowIndex(null)
           }
           return setShowIndex(index)

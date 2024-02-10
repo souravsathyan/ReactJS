@@ -1,4 +1,4 @@
-import Cards, {withProductLabel}from "./Card"
+import Cards, { withProductLabel } from "./Card"
 import { useContext, useState } from "react"
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom"
@@ -13,7 +13,7 @@ const Body = () => {
     const [listOfRestaurents, filteredRes] = useRestList(null)
     const [filteredRestaurants, setFilteredRestaurants] = useState(null);
     const onlineStatus = useOnlineStatus()
-    const {setUserName} = useContext(userContext)
+    const { setUserName } = useContext(userContext)
     // 
     //withProductLAbel is a higherOrder component which takes a component 
     // we have passed the Cards Compnent in it
@@ -43,15 +43,15 @@ const Body = () => {
     if (filteredRes.length == 0) {
         return <Shimmer />
     }
-    
+
     return (
         <div className='body'>
-            
-                <div className="flex flex-col justify-evenly  items-center filter h-[250px] bg-slate-900">
-                    <div className="">
-                        <h1 className="text-slate-50 text-3xl font-bold">Welcome to Foodoo 🍔</h1>
-                    </div>
-                    <div className="flex">
+
+            <div className="flex flex-col justify-evenly  items-center filter h-[250px] bg-slate-900">
+                <div className="">
+                    <h1 className="text-slate-50 text-3xl font-bold">Welcome to Foodoo 🍔</h1>
+                </div>
+                <div className="flex">
                     <input
                         type="text"
                         className="block p-2 w-80 rounded-md border-0  text-gray-900 ring-1 ring-inset"
@@ -69,41 +69,40 @@ const Body = () => {
                     >
                         Search
                     </button>
-                    </div>
                 </div>
-                
-            
+            </div>
+
             <div className='rest-container'>
-                
+
                 <div className="px-[100px] py-[10px]">
                     <button
-                     className="bg-slate-400 p-2 m-2 rounded-lg shadow-xl"
-                     onClick={()=>{
-                        const filteredRestaurant  = listOfRestaurents.filter((res)=>res.info.avgRating >=4.3)
-                        console.log(filteredRestaurant)
-                        setFilteredRestaurants(filteredRestaurant)
-                    }} >Top Rated Restaruents</button>
-                    <button 
-                    className="bg-red-400 p-2 m-2 rounded-lg shadow-xl"
-                    onClick={()=>{
-                        setFilteredRestaurants(listOfRestaurents)
-                    }} >Clear filter</button>
-                   
+                        className="bg-slate-400 p-2 m-2 rounded-lg shadow-xl"
+                        onClick={() => {
+                            const filteredRestaurant = listOfRestaurents.filter((res) => res.info.avgRating >= 4.3)
+                            console.log(filteredRestaurant)
+                            setFilteredRestaurants(filteredRestaurant)
+                        }} >Top Rated Restaruents</button>
+                    <button
+                        className="bg-red-400 p-2 m-2 rounded-lg shadow-xl"
+                        onClick={() => {
+                            setFilteredRestaurants(listOfRestaurents)
+                        }} >Clear filter</button>
+
                 </div>
 
                 <div className="flex flex-wrap px-[100px]">
-                {
-                    (filteredRestaurants == null ? filteredRes : filteredRestaurants).map((el) => {
-                        return <Link
-                            key={el.info.id}
-                            to={'/restaurants/' + el.info.id}
-                        >
-                            {el?.info?.oyaltyDiscoverPresentationInfo?.badgeType === "BADGE_TYPE_ONE_LITE" ? <RestaruentCardPromoted key={el.info.id} resData={el}/> : <Cards key={el.info.id} resData={el} />}
-                            
-                        </Link>
+                    {
+                        (filteredRestaurants == null ? filteredRes : filteredRestaurants).map((el) => {
+                            return <Link
+                                key={el.info.id}
+                                to={'/restaurants/' + el.info.id}
+                            >
+                                {el?.info?.oyaltyDiscoverPresentationInfo?.badgeType === "BADGE_TYPE_ONE_LITE" ? <RestaruentCardPromoted key={el.info.id} resData={el} /> : <Cards key={el.info.id} resData={el} />}
 
-                    })
-                }
+                            </Link>
+
+                        })
+                    }
                 </div>
 
             </div>

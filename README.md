@@ -226,6 +226,7 @@ jsx example
 - we import the *createBrowserRouter to config our paths
 - configuration is a list of Objects
 - *RouterProvider component gives the routing configration to our App
+ - ```root.render(<RouterProvider router={appRouter} />)```
 - with useRouterError hook by the react-router-dom we can access more details about the error occured
 - *Outlet component will render the child route according to the path ie, the outlet will be filled with the component A2 path.
 - *Link for navigating

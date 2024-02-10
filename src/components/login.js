@@ -19,7 +19,7 @@ const initialValues = {
 const Login = () => {
     const navigate = useNavigate()
     const [getLocalStorage, setLocalStorage] = useLocalStorage("user")
-    const {setUserName} = useContext(userContext)
+    const { setUserName } = useContext(userContext)
 
     const handleSubmit = (values) => {
         let index = values?.email.indexOf('@')

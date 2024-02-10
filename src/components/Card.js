@@ -28,8 +28,8 @@ export const withProductLabel = (Cards) => {
         return (
             <div>
                 <label className="bg-slate-600 p-2 m-2">Free Delivery</label>
-                <Cards {...props} /> 
-                
+                <Cards {...props} />
+
             </div>
         )
     }
